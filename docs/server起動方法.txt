@@ -1,0 +1,11 @@
+1.index.htmlのあるフォルダにいき、psを起動
+
+2.下記コマンドを起動
+python -m http.server 8000
+
+3.ブラウザで下記サイトに
+http://localhost:8000/index.html
+
+aaa
+
+
