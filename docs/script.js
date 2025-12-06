@@ -20,14 +20,12 @@ sections.forEach(sec => {
   sec.style.display = (sec.id === 'home') ? 'block' : 'none';
 });
 
-//----------------------------------------------------
-// CSV読み込み（汎用）
-//----------------------------------------------------
+
 async function loadCSVFile(filename) {
-  const res = await fetch(filename);
+  const url = `${filename}?nocache=${Date.now()}`; // ★キャッシュ破壊
+  const res = await fetch(url);
   let text = await res.text();
 
-  // BOM削除
   if (text.charCodeAt(0) === 0xFEFF) text = text.slice(1);
 
   const lines = text.trim().split("\n");
@@ -42,7 +40,6 @@ async function loadCSVFile(filename) {
     header.forEach((h, idx) => {
       item[h] = cols[idx] || "";
     });
-
     list.push(item);
   }
 
