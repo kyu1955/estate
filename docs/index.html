@@ -75,46 +75,17 @@
     </div>
   </section>
 
+<section id="contact" class="page-section" style="display:block;">
+  <h2>お問い合わせ</h2>
 
+  <form action="https://formspree.io/f/mbdrgrbp" method="POST">
+    <input type="text" name="title" placeholder="件名" required><br><br>
+    <input type="text" name="name" placeholder="お名前" required><br><br>
+    <textarea name="message" placeholder="メッセージ" required></textarea><br><br>
 
-  <section id="contact" class="page-section" style="display:block;">
-    <h2>お問い合わせ</h2>
-    
-    <!-- 入力フォーム -->
-    <input type="text" id="title" placeholder="件名"><br><br>
-    <input type="text" id="name" placeholder="お名前"><br><br>
-    <textarea id="message" placeholder="メッセージ"></textarea><br><br>
-    <button id="sendMail">送信</button>
-
-    <!-- EmailJS SDK -->
-    <script src="https://cdn.emailjs.com/sdk/3.2.0/email.min.js"></script>
-    <script>
-      // EmailJS初期化（Account → API Keys → Public Key）
-      emailjs.init("Rdk28u4Xqg8RjRvtn"); // 例: "XyzAbc123"
-
-      document.getElementById("sendMail").addEventListener("click", function() {
-        const title = document.getElementById("title").value;
-        const name = document.getElementById("name").value;
-        const message = document.getElementById("message").value;
-
-        // EmailJSで送信
-        emailjs.send("service_9labuql", "template_k6li86c", {
-          title: title,
-          name: name,
-          message: message
-        }).then(function(response) {
-          alert("メール送信成功！");
-          // フォームをクリア
-          document.getElementById("title").value = "";
-          document.getElementById("name").value = "";
-          document.getElementById("message").value = "";
-        }, function(error) {
-          alert("送信失敗：" + JSON.stringify(error));
-        });
-      });
-    </script>
-  </section>
-
+    <button type="submit">送信</button>
+  </form>
+</section>
 
   <script src="script.js"></script>
 </body>
