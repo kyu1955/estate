@@ -75,6 +75,7 @@
     </div>
   </section>
 
+
   <section id="contact" class="page-section" style="display:block;">
     <h2>お問い合わせ</h2>
     
@@ -85,25 +86,22 @@
     <button id="sendMail">送信</button>
 
     <!-- EmailJS SDK -->
-    https://cdn.emailjs.com/sdk/3.2.0/email.min.js</script>
+    <script src="https://cdn.emailjs.com/sdk/3.2.0/email.min.js"></script>
     <script>
       // EmailJS初期化（Integrationページで確認したUser ID）
-      emailjs.init("YOUR_USER_ID");
+      emailjs.init("YOUR_USER_ID"); // 例: "XyzAbc123"
 
       document.getElementById("sendMail").addEventListener("click", function() {
-        // 入力値を取得
         const title = document.getElementById("title").value;
         const name = document.getElementById("name").value;
         const message = document.getElementById("message").value;
 
-        // EmailJSで送信
         emailjs.send("service_9labuql", "template_k6li86c", {
           title: title,
           name: name,
           message: message
         }).then(function(response) {
           alert("メール送信成功！");
-          // フォームをクリア
           document.getElementById("title").value = "";
           document.getElementById("name").value = "";
           document.getElementById("message").value = "";
@@ -113,7 +111,6 @@
       });
     </script>
   </section>
-
 
   <script src="script.js"></script>
 </body>
