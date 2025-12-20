@@ -76,6 +76,7 @@
   </section>
 
 
+
   <section id="contact" class="page-section" style="display:block;">
     <h2>お問い合わせ</h2>
     
@@ -88,7 +89,7 @@
     <!-- EmailJS SDK -->
     <script src="https://cdn.emailjs.com/sdk/3.2.0/email.min.js"></script>
     <script>
-      // EmailJS初期化（Integrationページで確認したUser ID）
+      // EmailJS初期化（Account → API Keys → Public Key）
       emailjs.init("Rdk28u4Xqg8RjRvtn"); // 例: "XyzAbc123"
 
       document.getElementById("sendMail").addEventListener("click", function() {
@@ -96,12 +97,14 @@
         const name = document.getElementById("name").value;
         const message = document.getElementById("message").value;
 
+        // EmailJSで送信
         emailjs.send("service_9labuql", "template_k6li86c", {
           title: title,
           name: name,
           message: message
         }).then(function(response) {
           alert("メール送信成功！");
+          // フォームをクリア
           document.getElementById("title").value = "";
           document.getElementById("name").value = "";
           document.getElementById("message").value = "";
@@ -111,6 +114,7 @@
       });
     </script>
   </section>
+
 
   <script src="script.js"></script>
 </body>
